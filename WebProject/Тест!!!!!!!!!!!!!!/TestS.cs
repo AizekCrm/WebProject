@@ -10,6 +10,8 @@ namespace WebProject.Тест______________
         public void method()
         {
             Console.WriteLine("Test");
+
+            Console.WriteLine("Test2");
         }
     }
 }
