@@ -1,0 +1,2 @@
+﻿DBCC CHECKIDENT ('Phones', RESEED, 0);
+GO

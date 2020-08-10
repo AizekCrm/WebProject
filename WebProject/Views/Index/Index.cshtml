@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Примеры";
+}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Примеры</title>
+</head>
+
+@{
+    if (User.IsInRole("admin"))
+    {
+        <div>
+            <p><a class="btn btn-info" asp-controller="SmartPhone" asp-action="SmartPhone">Смартфоны</a></p>
+        </div>
+        <div>
+            <p><a class="btn btn-info" asp-controller="Form" asp-action="Form"> Расчёт высоты и долготы</a></p>
+        </div>
+    }
+}
+
+@*<div id="RefDiv" style=" display:none;">
+        <table>
+            <tr>
+                <td>Модель</td>
+                <td>Производитель</td>
+                <td>Цена</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#Ref').click(function () {
+                if ($('#RefDiv').css('display') == "block") {
+                    $('#RefDiv table tbody').children('tr:not(:first)').remove();
+                    $('#RefDiv').fadeOut();
+                    $('#tdblock').fadeIn();
+                } else {
+                    $('#tdblock').fadeOut();
+                    $('#RefDiv').fadeIn();
+                    $.ajax({
+                        url: "../Index/SmartPhones",
+                        success: function (result) {
+                            for (var i = 0; i < result.length; i++) {
+                                $('#RefDiv table').append(
+
+                                    "<tr><td>" + result[i].name + "</td><td>" + result[i].company + "</td><td>" + result[i].price + "</td><td><a href="+"/Buy/Buy/"+ result[i].id +">Купить</a></td></tr>"
+                                    );
+                            }
+                        }
+                    });
+                }
+            });
+        })
+    </script>*@

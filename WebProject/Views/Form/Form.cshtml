@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Расчёт";
+}
+
+<div>
+    <form method="post" asp-controller="Form" asp-action="Area">
+        <label>Высота:</label><br />
+        <input style="border-radius: 1.25rem;" type="number" name="height" /><br />
+        <label>Основание:</label><br />
+        <input style="border-radius: 1.25rem;" type="number" name="altitude" /><br />
+        <input class="btn btn-info mt-2" type="submit" value="Отправить" />
+    </form>
+</div>

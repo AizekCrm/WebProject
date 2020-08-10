@@ -1,0 +1,35 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Покупка";
+}
+
+<head>
+    <title>Оформление заказа</title>
+</head>
+
+<div>
+    <h3>Форма оформления покупки</h3>
+    <p>Для оформления покупки заполните следующие поля:</p>
+    <form method="post" action="~/Order/OrderConfirm" asp-antiforgery="true">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="CustomerName">Имя пользователя</label><br />
+            <input type="text" asp-for="CustomerName" />
+            <span asp-validation-for="CustomerName"></span>
+        </div>
+        <div>
+            <label asp-for="CustomerAddress">Адресс доставки</label><br />
+            <input type="text" asp-for="CustomerAddress" />
+            <span asp-validation-for="CustomerAddress"></span>
+        </div>
+        <div>
+            <label asp-for="CustomerContactPhone">Контактный телефон</label><br />
+            <input type="text" asp-for="CustomerContactPhone" />
+            <span asp-validation-for="CustomerContactPhone"></span>
+        </div>
+        <div>
+            <input class="btn btn-info" type="submit" value="Потвердить заказ" />
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,19 @@
+﻿<h2>Список Смартфонов</h2>
+<form method="POST" action="~/SmartPhone/SearchPhone">
+    <input style="border-radius: 1.25rem;" type="text" name="company" />
+    <input class="btn btn-info" type="submit" value="Поиск" />
+</form>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (var phon in Model.AllPhone)
+        {
+            <div class="col-lg-4">
+                <h3>@phon.Name</h3>
+                <img class="img-thumbnail" style="max-width: 47%;border-radius: 1.25rem;" src="@phon.Photo" alt="@phon.Name" />
+                <p>Company: @phon.Company</p>
+                <p>Price: @phon.Price.ToString("c")</p>
+                <p><a class="btn btn-info" asp-controller="Cart" asp-action="AddItem" asp-route-id="@phon.PhoneId">Добавить в корзину</a></p>
+            </div>
+        }
+    }
+</div>

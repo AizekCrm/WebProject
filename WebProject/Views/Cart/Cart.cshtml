@@ -1,0 +1,56 @@
+﻿@model ProductView
+
+<h3>Корзина товаров</h3>
+
+@{ 
+    int AllQuentity = 0;
+    int Quemtity = 1;
+}
+
+@if (Model.Products != null)
+{
+    foreach (var Product in Model.Products)
+    {
+        <div class="row mt-5 mb-2">
+            <div class="col-lg-4">
+                <img class="img-thumbnail" style="max-width: 47%;border-radius: 1.25rem;" src="@Product[0].Photo" alt="@Product[0].Name" />
+                <p>@Product[0].Name</p>
+                <p>@Product[0].Price.ToString("c")</p>
+                @if (Product.Count > 1)
+                {
+                    <p>Кол-во: <span class="btn btn-info">@Product.Count</span></p>
+                }
+                else
+                {
+                    <p>Кол-во: <span class="btn btn-info">@Quemtity</span></p>
+                }
+                <div>
+                    <a class="btn btn-info" asp-controller="Cart" asp-action="DeleteItem" asp-route-id="@Product[0].PhoneId">Удалить из корзины</a>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div>&nbsp</div>
+    <div>Корзина пуста</div>
+    <div>&nbsp</div>
+}
+
+<div>
+    @if (Model.Products != null)
+    {
+        <a class="btn btn-info" asp-controller="Order" asp-action="Order">Оформить заказ</a>
+        <a class="btn btn-info" asp-controller="Cart" asp-action="ReturnToBuy">Вернуться к покупкам</a>
+        for (int i = 0; i < Model.Products.Count(); i++)
+        {
+            AllQuentity += Model.Products[i].Count;
+        }
+        <div class="btn btn-info"><b>@AllQuentity</b></div>
+    }
+    else
+    {
+        <a class="btn btn-info" asp-controller="Index" asp-action="Index">На главную</a>
+    }
+</div>
