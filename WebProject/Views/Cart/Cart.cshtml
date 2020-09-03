@@ -4,7 +4,7 @@
 
 @{ 
     int AllQuentity = 0;
-    int Quemtity = 1;
+    int Quentity = 1;
 }
 
 @if (Model.Products != null)
@@ -22,7 +22,7 @@
                 }
                 else
                 {
-                    <p>Кол-во: <span class="btn btn-info">@Quemtity</span></p>
+                    <p>Кол-во: <span class="btn btn-info">@Quentity</span></p>
                 }
                 <div>
                     <a class="btn btn-info" asp-controller="Cart" asp-action="DeleteItem" asp-route-id="@Product[0].PhoneId">Удалить из корзины</a>

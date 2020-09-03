@@ -69,7 +69,7 @@ namespace WebProject.Controllers
         {
             var SmartPhone = AllMobile.Mobiles.FirstOrDefault(c => c.PhoneId == id);
             CartService.DeleteToCart(SmartPhone);
-            return RedirectToAction("Basket", "Basket");
+            return RedirectToAction("Cart", "Cart");
         }
 
         /// <summary>
